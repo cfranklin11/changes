@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= title %> by The Colourzillas #govhack 2016 - Melbourne</title>
     <!-- Bootstrap core CSS -->
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="/stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <script src="/stylesheets/ie-emulation-modes-warning.js"></script>
+    <script src="/javascripts/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,42 +28,43 @@
 
      <div class="navbar-wrapper">
        <div class="container">
-
-         <nav class="navbar navbar-inverse navbar-static-top">
-           <div class="container">
-             <div class="navbar-header">
-               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                 <span class="sr-only">Toggle navigation</span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-               </button>
-               <a class="navbar-brand" href="http://getbootstrap.com/examples/carousel/#"><%= title %></a>
-             </div>
-             <div id="navbar" class="navbar-collapse collapse">
-               <ul class="nav navbar-nav">
-                 <li class="active"><a href="http://getbootstrap.com/examples/carousel/#">Home</a></li>
-                 <li><a href="http://getbootstrap.com/examples/carousel/#about">About</a></li>
-                 <li><a href="http://getbootstrap.com/examples/carousel/#contact">Contact</a></li>
-                 <li class="dropdown">
-                   <a href="http://getbootstrap.com/examples/carousel/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                   <ul class="dropdown-menu">
-                     <li><a href="http://getbootstrap.com/examples/carousel/#">Action</a></li>
-                     <li><a href="http://getbootstrap.com/examples/carousel/#">Another action</a></li>
-                     <li><a href="http://getbootstrap.com/examples/carousel/#">Something else here</a></li>
-                     <li role="separator" class="divider"></li>
-                     <li class="dropdown-header">Nav header</li>
-                     <li><a href="http://getbootstrap.com/examples/carousel/#">Separated link</a></li>
-                     <li><a href="http://getbootstrap.com/examples/carousel/#">One more separated link</a></li>
-                   </ul>
-                 </li>
-               </ul>
-             </div>
-           </div>
-         </nav>
-
-       </div>
+         <% include ./partials/_navbar.ejs %>
      </div>
+     </div>
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <% include ./partials/_carousel.ejs %>
+   </div>
+
+
+     <div class="container marketing">
+       <% include ./partials/_carousel.ejs %>
+       <% include ./partials/_bubbles.ejs %>
+        <% include ./partials/_featurettes.ejs %>
+        <% include ./partials/_footer.ejs %>
+     </div>
+
+     <!-- Bootstrap core JavaScript
+     ================================================== -->
+     <!-- Placed at the end of the document so the pages load faster -->
+     <script src="/javascripts/jquery.min.js"></script>
+     <script>window.jQuery || document.write('<script src="/javascripts/jquery.min.js"><\/script>')</script>
+     <script src="/javascripts/bootstrap.min.js"></script>
+     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+     <script src="/javascripts/holder.min.js"></script>
+     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+     <script src="/javascripts/ie10-viewport-bug-workaround.js"></script>
+
+
+ <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
+   <defs>
+     <style type="text/css"></style>
+   </defs>
+   <text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text>
+ </svg>
+
+
 
 
   </body>

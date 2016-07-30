@@ -8,11 +8,15 @@ var dataHelper = require('../lib/data-helper');
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/data',
+router.get('/data', function(req, res, next) {
+  res.render('data', {title: 'Data'});
+});
+router.get('/api/data',
   dataHelper.getTempData,
   dataHelper.getPrecipData,
   function(req, res, next) {
-    res.render('data', { title: 'Data' });
+    console.log(req.mapData);
+    res.json(req.mapData);
 });
 
 module.exports = router;

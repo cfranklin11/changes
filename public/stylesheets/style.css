@@ -1,3 +1,17 @@
 .navbar-brand {
-  padding: 5px 15px; 
+  padding: 5px 15px;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+.placeholders h4 {
+  margin-bottom: 0;
 }

@@ -15,7 +15,6 @@ router.get('/api/data',
   dataHelper.getTempData,
   dataHelper.getPrecipData,
   function(req, res, next) {
-    console.log(req.mapData);
     res.json(req.mapData);
 });
 

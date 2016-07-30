@@ -5,11 +5,15 @@
     <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <div id="map">
     </div>
+    <button type="button" id="start">Start</button>
+    <button type="button" id="stop">Stop</button>
+
     <script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
     <script src="/javascripts/simple-heat.js"></script>
     <script src="/javascripts/leaflet-heat.js"></script>

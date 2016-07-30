@@ -6,7 +6,7 @@ var dataHelper = require('../lib/data-helper');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'My Climate Change' });
 });
 router.get('/data',
   dataHelper.getTempData,

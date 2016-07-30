@@ -10,6 +10,7 @@ http://getbootstrap.com/examples/carousel/#contact
 #Frontend Assets:
 Credits: "Lil faces" icons from the "Daily Design series" of designer and youtube @mackenziechild
 https://www.youtube.com/watch?v=bPu0mTsxqTE
+https://snazzymaps.com/style/110/mikiwat
 
 #Data set:
 

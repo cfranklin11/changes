@@ -1,3 +1,24 @@
+body {
+  background-color: #6bb0db;
+  color: #000;
+}
+.navbar-inverse {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.88);
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+  color: #c96dac;
+  background-color: transparent;
+}
+.navbar-inverse .navbar-nav>li>a {
+  color:  #c11c8d;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+  color:  #c11c8d;
+}
+
+
 .navbar-brand {
   padding: 5px 15px;
 }
@@ -17,28 +38,40 @@
 }
 
 
-/* ---------------- CAROUSEL FORM INPUTS ---------------------- */
 
+.carousel .item {
+  height: 650px;
+  background-color: #68afe3;
+  background: url('../images/header-map2.png') top center;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+.carousel-caption {
+  bottom: 230px;
+}
+/* ---------------- CAROUSEL FORM INPUTS ---------------------- */
 
 
 /* form starting stylings ------------------------------- */
 .group 			  {
  position:relative;
- margin-bottom:45px;
+ margin-bottom:12px;
+display: inline-block;
 }
 input 				{
  font-size:18px;
  padding:10px 10px 10px 5px;
  display:block;
- width:300px;
+ width:200px;
  border:none;
- border-bottom:1px solid #757575;
+ border-bottom:2px solid #fff;
+ background-color: transparent!important;
 }
 input:focus 		{ outline:none; }
 
 /* LABEL ======================================= */
 label 				 {
- color:#999;
+ color:#FFF;
  font-size:18px;
  font-weight:normal;
  position:absolute;
@@ -54,16 +87,17 @@ label 				 {
 input:focus ~ label, input:valid ~ label 		{
  top:-20px;
  font-size:14px;
- color:#5264AE;
+ color:#fff;
 }
 
 /* BOTTOM BARS ================================= */
-.bar 	{ position:relative; display:block; width:300px; }
+.bar 	{ position:relative; display:block; width:200px; }
 .bar:before, .bar:after 	{
  content:'';
  height:2px;
  width:0;
  bottom:1px;
+ top: -2px;
  position:absolute;
  background:#5264AE;
  transition:0.2s ease all;
@@ -90,7 +124,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
  top:25%;
  left:0;
  pointer-events:none;
- opacity:0.5;
+ opacity:0.1;
 }
 
 /* active state */

@@ -15,3 +15,7 @@
 .placeholders h4 {
   margin-bottom: 0;
 }
+
+#map {
+  height: 400px;
+}

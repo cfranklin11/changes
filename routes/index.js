@@ -8,11 +8,14 @@ var dataHelper = require('../lib/data-helper');
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'My Climate Change' });
 });
-router.get('/data',
+router.get('/data', function(req, res, next) {
+  res.render('data', {title: 'Data'});
+});
+router.get('/api/data',
   dataHelper.getTempData,
   dataHelper.getPrecipData,
   function(req, res, next) {
-    res.render('data', { title: 'Data' });
+    res.json(req.mapData);
 });
 
 module.exports = router;

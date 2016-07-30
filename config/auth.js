@@ -13,5 +13,8 @@ if (fs.existsSync(envFile)) {
 }
 
 module.exports = {
-
+  TWITTER_KEY: process.env.TWITTER_KEY,
+  TWITTER_SECRET: process.env.TWITTER_SECRET,
+  TWITTER_ACCESS_TOKEN: process.env.TWITTER_ACCESS_TOKEN,
+  TWITTER_ACCESS_SECRET: process.env.TWITTER_ACCESS_SECRET
 };

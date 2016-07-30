@@ -9,9 +9,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 router.get('/data',
-  dataHelper.getData,
+  dataHelper.getTempData,
+  dataHelper.getPrecipData,
   function(req, res, next) {
-  res.render('index', { title: 'Data' });
+    res.render('data', { title: 'Data' });
 });
 
 module.exports = router;

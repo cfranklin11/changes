@@ -9,7 +9,7 @@
 
   // Add tile layer to map
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-      maxZoom: 6,
+      maxZoom: 11,
       id: 'cfranklin11.102903n3',
       accessToken: 'pk.eyJ1IjoiY2ZyYW5rbGluMTEiLCJhIjoiY2lyOGt6MGhsMDB5ZGcybmthNjJ6NmpqNyJ9.UNYHuHZxEd6QcIxJfD8ygg'
   }).addTo(mymap);
@@ -22,10 +22,21 @@
       console.log(data);
       mapData = data;
 
-      heat = L.heatLayer(mapData.temperature[mapData.temperature.years[0]], {
+      var categories = mapData.categories;
+      var category = categories[0];
+      var dataYear = mapData[category].years[0];
+      var optionHtml, thisCategory, i;
+
+      for (i = 0; i < categories.length; i++) {
+        thisCategory = categories[i];
+        optionHtml = '<option value="' + thisCategory + '">' + thisCategory + '</option>';
+        $('#category-select').append(optionHtml);
+      }
+
+      heat = L.heatLayer(mapData[category][dataYear], {
         gradient: {0.2: 'blue', 0.4: 'green', 0.6: 'yellow', 0.8: 'orange', 1: 'red'},
         radius: 25,
-        maxZoom: 9
+        maxZoom: 22
       }).addTo(mymap);
     })
     .fail(function(err) {
@@ -37,7 +48,9 @@
   function animateMap(e) {
     var thisYear, newData;
     var INTERVAL_LENGTH = 1000;
-    var thisData = mapData.temperature;
+    var categorySelect = document.getElementById('category-select');
+    var category = categorySelect.options[categorySelect.selectedIndex].value;
+    var thisData = mapData[category];
     var years = thisData.years;
     var yearsLength = years.length;
 
@@ -53,9 +66,6 @@
       newData = thisData[thisYear];
 
       var yearLabel = document.getElementById('year-label').innerHTML;
-
-      console.log(yearLabel);
-
       var newYearLabel = yearLabel.replace(/in \d*/, 'in ' + thisYear);
       document.getElementById('year-label').innerHTML = newYearLabel;
 
@@ -96,7 +106,7 @@
       if (status == google.maps.GeocoderStatus.OK) {
         var lat = results[0].geometry.location.lat();
         var long = results[0].geometry.location.lng();
-        mymap.setView([lat, long], 5);
+        mymap.setView([lat, long], 9);
 
       } else {
         alert("Something went wrong " + status);

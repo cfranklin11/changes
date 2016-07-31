@@ -1,3 +1,23 @@
+body {
+  background-color: #6bb0db;
+  color: #000;
+}
+.navbar-inverse {
+  background-color: rgba(255, 255, 255, 0.65);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+  color: #c96dac;
+  background-color: transparent;
+}
+.navbar-inverse .navbar-nav>li>a {
+  color:  #c11c8d;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+  color:  #c11c8d;
+}
+
 .navbar-brand {
   padding: 5px 15px;
 }
@@ -15,7 +35,131 @@
 .placeholders h4 {
   margin-bottom: 0;
 }
-
+/* craig's map */
 #map {
   height: 400px;
+}
+
+/* ---------------- CAROUSEL Form general ---------------------- */
+.carousel .item {
+  height: 650px;
+  background-color: #68afe3;
+  background: url('../images/header-map2.png') top center;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+
+.carousel-caption {
+  bottom: 230px;
+}
+
+
+/* ---------------- CAROUSEL FORM INPUTS ---------------------- */
+/* form starting stylings  */
+.group 			  {
+  position:relative;
+  margin-bottom:12px;
+  display: inline-block;
+}
+input 				{
+  font-size:18px;
+  padding:12px 10px 5px 5px;
+  display:block;
+  width:200px;
+  border:none;
+  border-bottom:2px solid #fff;
+  background-color: transparent!important;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#FFF;
+  font-size:21px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top: -10px;
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  font-weight: normal;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:200px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  top: -2px;
+  position:absolute;
+  background:#c11c8d;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.1;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#c11c8d; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#c11c8d; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#c11c8d; }
+  to 	{ width:0; background:transparent; }
+}
+
+.btn-primary {
+  background-color: #c11c8d;
+  border: 0;
+}
+
+.featurette {
+  text-align: center;
+}
+.featurette .text-muted{
+  color: white;
 }

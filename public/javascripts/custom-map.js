@@ -61,12 +61,17 @@
     clearInterval(myInterval);
   }
 
+  // Geocoding city input event handler
   $("#coord").click(function(){
-    var city = $('#city').text();
+    var city = document.getElementById('city').value;
     var geocoder =  new google.maps.Geocoder();
+
     geocoder.geocode( { 'address': city + ', au'}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        alert("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng());
+        var lat = results[0].geometry.location.lat();
+        var long = results[0].geometry.location.lng();
+        mymap.setView([lat, long], 5);
+
       } else {
         alert("Something got wrong " + status);
       }

@@ -22,7 +22,18 @@
       console.log(data);
       mapData = data;
 
-      heat = L.heatLayer(mapData.temperature[mapData.temperature.years[0]], {
+      var categories = mapData.categories
+      var category = categories[0];
+      var dataYear = mapData[category].years[0];
+      var optionHtml, thisCategory, i;
+
+      for (i = 0; i < categories.length; i++) {
+        thisCategory = categories[i];
+        optionHtml = '<option value="' + thisCategory + '">' + thisCategory + '</option>';
+        $('#category-select').append(optionHtml);
+      }
+
+      heat = L.heatLayer(mapData[category][dataYear], {
         gradient: {0.2: 'blue', 0.4: 'green', 0.6: 'yellow', 0.8: 'orange', 1: 'red'},
         radius: 25,
         maxZoom: 9
@@ -37,7 +48,9 @@
   function animateMap(e) {
     var thisYear, newData;
     var INTERVAL_LENGTH = 1000;
-    var thisData = mapData.temperature;
+    var categorySelect = document.getElementById('category-select');
+    var category = categorySelect.options[categorySelect.selectedIndex].value;
+    var thisData = mapData[category];
     var years = thisData.years;
     var yearsLength = years.length;
 

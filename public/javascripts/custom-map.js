@@ -51,6 +51,14 @@
 
       thisYear = years[intervalCount];
       newData = thisData[thisYear];
+
+      var yearLabel = document.getElementById('year-label').innerHTML;
+
+      console.log(yearLabel);
+
+      var newYearLabel = yearLabel.replace(/in \d*/, 'in ' + thisYear);
+      document.getElementById('year-label').innerHTML = newYearLabel;
+
       heat.setLatLngs(newData);
       intervalCount++;
     }
@@ -61,15 +69,28 @@
     clearInterval(myInterval);
   }
 
+  function setToProper(txt) {
+    var proper = txt.replace(/\w\S*/g,
+      function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+    return proper;
+  }
+
   // Geocoding city input event handler
   $("#city-btn").click(function(e){
-    e.preventDefault()
+    e.preventDefault();
 
     var city = document.getElementById('location').value;
+    var categorySelect = document.getElementById('category-select');
+    var category = categorySelect.options[categorySelect.selectedIndex].value;
+    var currentYear = mapData[category].years[0];
+
     var geocoder =  new google.maps.Geocoder();
-    var cityName = city.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    var cityName = setToProper(city);
+    var categoryName = setToProper(category);
 
     document.getElementById('location-span').innerHTML = cityName;
+    document.getElementById('year-label').innerHTML = categoryName + ' around ' + cityName + ' in ' + currentYear;
 
     geocoder.geocode({'address': city + ', au'}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {

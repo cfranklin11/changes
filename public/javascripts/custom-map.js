@@ -61,6 +61,18 @@
     clearInterval(myInterval);
   }
 
+  $("#coord").click(function(){
+    var city = $('#city').text();
+    var geocoder =  new google.maps.Geocoder();
+    geocoder.geocode( { 'address': city + ', au'}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        alert("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng());
+      } else {
+        alert("Something got wrong " + status);
+      }
+    });
+  });
+
   // Event listeners
   $('#start').click(animateMap);
   $('#stop').click(stopInterval);

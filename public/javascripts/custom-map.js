@@ -19,7 +19,6 @@
     $.get('/api/data', function() {
     })
     .done(function(data) {
-      console.log(data);
       mapData = data;
 
       var categories = mapData.categories;

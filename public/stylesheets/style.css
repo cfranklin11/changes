@@ -2,13 +2,20 @@ body {
   background-color: #6bb0db;
   color: #000;
 }
+.text-muted {
+  color: rgba(255, 255, 255, 0.90);
+}
+hr {
+  border-top: 1px solid rgba(238, 238, 238, 0.29);
+}
+
 .navbar-inverse {
-  background-color: rgba(255, 255, 255, 0.65);
-  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
-  color: #c96dac;
+  color: white;
   background-color: transparent;
 }
 .navbar-inverse .navbar-nav>li>a {
@@ -162,4 +169,14 @@ input:focus ~ .highlight {
 }
 .featurette .text-muted{
   color: white;
+}
+.featurette-divider {
+    margin: 60px 0;
+}
+
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 60px;
+  }
 }

@@ -2,7 +2,7 @@
 
 (function() {
   // Create map
-  var mymap = L.map('map').setView([-26.5, 134.5], 4);
+  var mymap = L.map('leaflet-map').setView([-26.5, 134.5], 4);
   var myInterval;
   var intervalCount = 1;
   var heat, mapData;
@@ -62,19 +62,26 @@
   }
 
   // Geocoding city input event handler
-  $("#coord").click(function(){
-    var city = document.getElementById('city').value;
-    var geocoder =  new google.maps.Geocoder();
+  $("#city-btn").click(function(e){
+    e.preventDefault()
 
-    geocoder.geocode( { 'address': city + ', au'}, function(results, status) {
+    var city = document.getElementById('location').value;
+    var geocoder =  new google.maps.Geocoder();
+    var cityName = city.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+
+    document.getElementById('location-span').innerHTML = cityName;
+
+    geocoder.geocode({'address': city + ', au'}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         var lat = results[0].geometry.location.lat();
         var long = results[0].geometry.location.lng();
         mymap.setView([lat, long], 5);
 
       } else {
-        alert("Something got wrong " + status);
+        alert("Something went wrong " + status);
       }
+
+      location.href = '/#map';
     });
   });
 

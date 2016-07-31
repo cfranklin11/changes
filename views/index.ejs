@@ -2,6 +2,9 @@
 <html>
   <head>
     <title><%= title %> by The Colourzillas #govhack 2016 - Melbourne</title>
+    <!-- Leafletjs CSS -->
+    <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
+
     <!-- Bootstrap core CSS -->
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
 
@@ -9,6 +12,12 @@
     <link href="/stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <script src="/javascripts/ie-emulation-modes-warning.js"></script>
+
+    <!-- js for Twitter Widget -->
+    <script type="text/javascript" src="/javascripts/twitter-widget.js"></script>
+
+    <!-- Google Maps API library -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf4hQqfk6QhCJSGLgw3FjFJqHK4fYwep0"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -43,8 +52,6 @@
        <hr class="featurette-divider">
        <% include ./partials/_the-map.ejs %>
        <hr class="featurette-divider">
-       <% include ./partials/_insights-bubbles.ejs %>
-       <hr class="featurette-divider">
       <% include ./partials/_ranking.ejs %>
       <hr class="featurette-divider">
       <% include ./partials/_footer.ejs %>
@@ -60,7 +67,12 @@
      <script src="/javascripts/holder.min.js"></script>
      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
      <script src="/javascripts/ie10-viewport-bug-workaround.js"></script>
-
+     <!-- Leafletjs library -->
+     <script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
+     <!-- heatmap plugins for Leafletjs -->
+     <script src="/javascripts/simple-heat.js"></script>
+     <script src="/javascripts/leaflet-heat.js"></script>
+     <script src="/javascripts/custom-map.js"></script>
 
  <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
    <defs>

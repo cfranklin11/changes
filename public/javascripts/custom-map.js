@@ -2,7 +2,7 @@
 
 (function() {
   // Create map
-  var mymap = L.map('map').setView([-26.5, 134.5], 4);
+  var mymap = L.map('leaflet-map').setView([-26.5, 134.5], 4);
   var myInterval;
   var intervalCount = 1;
   var heat, mapData;
@@ -51,6 +51,14 @@
 
       thisYear = years[intervalCount];
       newData = thisData[thisYear];
+
+      var yearLabel = document.getElementById('year-label').innerHTML;
+
+      console.log(yearLabel);
+
+      var newYearLabel = yearLabel.replace(/in \d*/, 'in ' + thisYear);
+      document.getElementById('year-label').innerHTML = newYearLabel;
+
       heat.setLatLngs(newData);
       intervalCount++;
     }
@@ -61,20 +69,40 @@
     clearInterval(myInterval);
   }
 
-  // Geocoding city input event handler
-  $("#coord").click(function(){
-    var city = document.getElementById('city').value;
-    var geocoder =  new google.maps.Geocoder();
+  function setToProper(txt) {
+    var proper = txt.replace(/\w\S*/g,
+      function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+    return proper;
+  }
 
-    geocoder.geocode( { 'address': city + ', au'}, function(results, status) {
+  // Geocoding city input event handler
+  $("#city-btn").click(function(e){
+    e.preventDefault();
+
+    var city = document.getElementById('location').value;
+    var categorySelect = document.getElementById('category-select');
+    var category = categorySelect.options[categorySelect.selectedIndex].value;
+    var currentYear = mapData[category].years[0];
+
+    var geocoder =  new google.maps.Geocoder();
+    var cityName = setToProper(city);
+    var categoryName = setToProper(category);
+
+    document.getElementById('location-span').innerHTML = cityName;
+    document.getElementById('year-label').innerHTML = categoryName + ' around ' + cityName + ' in ' + currentYear;
+
+    geocoder.geocode({'address': city + ', au'}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         var lat = results[0].geometry.location.lat();
         var long = results[0].geometry.location.lng();
         mymap.setView([lat, long], 5);
 
       } else {
-        alert("Something got wrong " + status);
+        alert("Something went wrong " + status);
       }
+
+      location.href = '/#map';
     });
   });
 

@@ -43,7 +43,7 @@ hr {
   margin-bottom: 0;
 }
 /* craig's map */
-#map {
+#leaflet-map {
   height: 400px;
 }
 

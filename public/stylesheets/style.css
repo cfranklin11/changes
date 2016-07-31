@@ -3,8 +3,8 @@ body {
   color: #000;
 }
 .navbar-inverse {
-  background-color: rgba(255, 255, 255, 0.75);
-  border-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.65);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
@@ -60,7 +60,7 @@ display: inline-block;
 }
 input 				{
  font-size:18px;
- padding:10px 10px 10px 5px;
+ padding:12px 10px 5px 5px;
  display:block;
  width:200px;
  border:none;
@@ -72,7 +72,7 @@ input:focus 		{ outline:none; }
 /* LABEL ======================================= */
 label 				 {
  color:#FFF;
- font-size:18px;
+ font-size:21px;
  font-weight:normal;
  position:absolute;
  pointer-events:none;
@@ -85,9 +85,10 @@ label 				 {
 
 /* active state */
 input:focus ~ label, input:valid ~ label 		{
- top:-20px;
- font-size:14px;
- color:#fff;
+  top: -10px;
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  font-weight: normal;
 }
 
 /* BOTTOM BARS ================================= */
@@ -99,7 +100,7 @@ input:focus ~ label, input:valid ~ label 		{
  bottom:1px;
  top: -2px;
  position:absolute;
- background:#5264AE;
+ background:#c11c8d;
  transition:0.2s ease all;
  -moz-transition:0.2s ease all;
  -webkit-transition:0.2s ease all;
@@ -136,14 +137,27 @@ input:focus ~ .highlight {
 
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
- from { background:#5264AE; }
+ from { background:#c11c8d; }
  to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes inputHighlighter {
- from { background:#5264AE; }
+ from { background:#c11c8d; }
  to 	{ width:0; background:transparent; }
 }
 @keyframes inputHighlighter {
- from { background:#5264AE; }
+ from { background:#c11c8d; }
  to 	{ width:0; background:transparent; }
+}
+
+.btn-primary {
+  background-color: #c11c8d;
+  border: 0;
+}
+
+
+.featurette {
+  text-align: center;
+}
+.featurette .text-muted{
+  color: white;
 }
